@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/container-queries";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Color System - Luxury SaaS Palette */
+  --color-background: #050608;
+  --color-foreground: #F8FAFC;
+  
+  --color-card: #0A0C10;
+  --color-card-foreground: #F8FAFC;
+  
+  --color-popover: #0A0C10;
+  --color-popover-foreground: #F8FAFC;
+  
+  --color-primary: #FFFFFF;
+  --color-primary-foreground: #050608;
+  
+  --color-secondary: #0F1115;
+  --color-secondary-foreground: #F8FAFC;
+  
+  --color-muted: #0F1115;
+  --color-muted-foreground: #94A3B8;
+  
+  --color-accent: #17191E;
+  --color-accent-foreground: #FFFFFF;
+  
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #F8FAFC;
+  
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-input: rgba(255, 255, 255, 0.05);
+  --color-ring: rgba(255, 255, 255, 0.1);
+
+  /* Brand Accents - Subdued and Sophisticated */
+  --color-brand-violet: #6366F1;
+  --color-brand-azure: #3B82F6;
+  --color-brand-glow: rgba(99, 102, 241, 0.08);
+
+  /* Typography - Premium Ratios */
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SF Mono, Menlo, monospace;
+
+  /* Spacing */
+  --spacing-container: 80rem;
+
+  /* Radii - Refined & Minimal */
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+
+  /* Easing System - "Linear/Vercel" inspired */
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-smooth: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-smooth: cubic-bezier(0.4, 0, 1, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Shadows - Layered for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-premium: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 40px -10px var(--color-brand-glow);
+
+  /* Animations - Restrained & Smooth */
+  --animate-accordion-down: accordion-down 0.2s var(--ease-premium);
+  --animate-accordion-up: accordion-up 0.2s var(--ease-premium);
+  --animate-fade-in: fade-in 0.6s var(--ease-premium);
+  --animate-slide-up: slide-up 0.8s var(--ease-premium);
+
+  @keyframes accordion-down {
+    from { height: 0; opacity: 0; }
+    to { height: var(--radix-accordion-content-height); opacity: 1; }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); opacity: 1; }
+    to { height: 0; opacity: 0; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-premium);
+  }
+  html {
+    @apply antialiased scroll-smooth;
+    background-color: var(--color-background);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01", "tnum";
+    letter-spacing: -0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold text-white;
+    text-wrap: balance;
+  }
+  p {
+    @apply leading-relaxed text-muted-foreground;
+    text-wrap: pretty;
+  }
+  
+  /* Precision Focus State */
+  :focus-visible {
+    @apply outline-none ring-2 ring-white/20 ring-offset-2 ring-offset-background transition-all;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-full max-w-(--spacing-container) px-6 md:px-10;
+  }
+  .glass {
+    @apply bg-background/60 backdrop-blur-xl border border-white/5;
+  }
+  .glass-hover {
+    @apply hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/40;
+  }
+  .section-padding {
+    @apply py-28 md:py-40;
+  }
+  .subtle-glow {
+    @apply relative after:absolute after:inset-0 after:bg-brand-violet/5 after:blur-3xl after:-z-10;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

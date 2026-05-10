@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { display:flex; flex-direction:column; align-items:flex-start; gap: 16px; padding: 20px 22px; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--inset-top); }
+  .dark { background: var(--surface-2); }
+  .light { background: #F5F6F8; color: #07080A; }
+  .light .meta { color: rgba(7,8,10,0.6); }
+  .meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+  .row { display:flex; align-items:center; gap: 14px; }
+  .mark { width: 48px; height: 48px; }
+  .name { font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.03em; }
+</style>
+</head><body>
+  <div class="panel dark">
+    <div class="row">
+      <img src="../assets/logo-mark.svg" class="mark" alt=""/>
+      <div class="name">vantage</div>
+    </div>
+    <div class="meta">on dark · primary lockup</div>
+  </div>
+  <div class="panel light">
+    <div class="row">
+      <img src="../assets/logo-mark.svg" class="mark" alt=""/>
+      <div class="name">vantage</div>
+    </div>
+    <div class="meta">on light · alternate</div>
+  </div>
+</body></html>

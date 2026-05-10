@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 32px; }
+  .row { display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .item { display:flex; flex-direction:column; align-items:center; gap: 10px; }
+  .tile { width: 110px; height: 90px; border-radius: 12px; background: var(--surface-2); border:1px solid var(--border); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); text-align:center; }
+  .lbl small { display:block; color: var(--text-muted); font-size: 10px; margin-top: 2px; }
+  .s2 { box-shadow: 0 4px 16px rgba(0,0,0,0.32), var(--inset-top); }
+  .gv { box-shadow: 0 0 0 1px rgba(124,92,255,0.20), 0 12px 40px -10px rgba(124,92,255,0.45), var(--inset-top); }
+  .ga { box-shadow: 0 0 0 1px rgba(79,168,255,0.20), 0 12px 40px -10px rgba(79,168,255,0.45), var(--inset-top); }
+  .gc { box-shadow: 0 0 0 1px rgba(54,226,210,0.20), 0 12px 40px -10px rgba(54,226,210,0.45), var(--inset-top); }
+</style>
+</head><body>
+  <div class="row">
+    <div class="item"><div class="tile s2"></div><div class="lbl">shadow / 2<small>card pop</small></div></div>
+    <div class="item"><div class="tile gv"></div><div class="lbl">glow / violet<small>primary CTA</small></div></div>
+    <div class="item"><div class="tile ga"></div><div class="lbl">glow / azure<small>info / link halo</small></div></div>
+    <div class="item"><div class="tile gc"></div><div class="lbl">glow / cyan<small>live indicator</small></div></div>
+  </div>
+</body></html>

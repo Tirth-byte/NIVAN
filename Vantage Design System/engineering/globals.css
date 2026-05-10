@@ -1,0 +1,122 @@
+/**
+ * app/globals.css — Tailwind v4 setup with @theme tokens.
+ *
+ * Keep this in sync with the project-root `colors_and_type.css`.
+ * For Tailwind v4, the @theme block declares CSS variables that automatically
+ * become utility classes (e.g. `--color-surface-2` → `bg-surface-2`).
+ */
+
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/container-queries";
+
+/* ========== Local fonts ========== */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  /* Match fallback metrics — kills CLS during font swap */
+  size-adjust: 100%;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* ========== Theme — single source of truth ========== */
+@theme {
+  /* Color */
+  --color-bg:           #07080A;
+  --color-surface-1:    #0E1014;
+  --color-surface-2:    #15181E;
+  --color-surface-3:    #1C2028;
+  --color-surface-4:    #242935;
+
+  --color-text-primary:   #F5F6F8;
+  --color-text-secondary: #9AA0AB;
+  --color-text-muted:     #5C6270;
+  --color-text-disabled:  #3A3F49;
+  --color-text-inverse:   #07080A;
+
+  --color-border-faint:  rgba(255,255,255,0.04);
+  --color-border:        rgba(255,255,255,0.06);
+  --color-border-strong: rgba(255,255,255,0.12);
+
+  --color-violet: #7C5CFF;
+  --color-azure:  #4FA8FF;
+  --color-cyan:   #36E2D2;
+
+  --color-success: #36D399;
+  --color-warning: #FFB547;
+  --color-danger:  #FF5C7C;
+  --color-info:    #4FA8FF;
+
+  /* Type */
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Radii */
+  --radius-xs:  4px;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+
+  /* Easing tokens */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ========== Static (non-token) CSS vars — gradients & shadows ========== */
+:root {
+  --grad-brand:      linear-gradient(135deg, #7C5CFF 0%, #4FA8FF 55%, #36E2D2 100%);
+  --grad-brand-soft: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(54,226,210,0.18));
+  --grad-bloom:      radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,0.40) 0%, rgba(79,168,255,0.20) 35%, rgba(54,226,210,0.10) 65%, transparent 100%);
+  --grad-text:       linear-gradient(135deg, #C9BCFF 0%, #9CD0FF 55%, #9AF0E5 100%);
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-pop: 0 24px 60px -20px rgba(0,0,0,0.6);
+  --inset-top: inset 0 1px 0 rgba(255,255,255,0.06);
+  --glow-cta:  0 0 24px rgba(124,92,255,0.22), 0 0 64px rgba(79,168,255,0.10);
+  --focus-ring: 0 0 0 2px rgba(124,92,255,0.5), 0 0 0 4px rgba(124,92,255,0.12);
+}
+
+/* ========== Base layer ========== */
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+  p { text-wrap: pretty; color: var(--color-text-secondary); }
+  ::selection { background: rgba(124,92,255,0.35); color: var(--color-text-primary); }
+  :focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+
+  /* Reduced motion: collapse all transforms */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

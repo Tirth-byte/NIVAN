@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; }
+  .grad-hero { height: 200px; border-radius: 16px; background: var(--grad-brand); position: relative; overflow: hidden; box-shadow: var(--inset-top); }
+  .grad-hero::after { content:""; position:absolute; inset:0; background: var(--grad-bloom); mix-blend-mode: screen; }
+  .grad-hero .label { position:absolute; left:18px; bottom:14px; font-family: var(--font-mono); font-size:11px; color: rgba(255,255,255,0.85); letter-spacing:0.04em; }
+  .stops { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:12px; }
+  .stop { height:80px; border-radius: 12px; padding: 12px; display:flex; flex-direction:column; justify-content:space-between; box-shadow: var(--inset-top); }
+  .stop .n { font-size:12px; font-weight:500; color: rgba(255,255,255,0.95); }
+  .stop .h { font-family: var(--font-mono); font-size:11px; color: rgba(255,255,255,0.75); }
+</style>
+</head><body>
+  <div class="grad-hero"><div class="label">linear-gradient(135deg, #7C5CFF → #4FA8FF → #36E2D2)</div></div>
+  <div class="stops">
+    <div class="stop" style="background:#7C5CFF"><span class="n">accent / violet</span><span class="h">#7C5CFF</span></div>
+    <div class="stop" style="background:#4FA8FF"><span class="n">accent / azure</span><span class="h">#4FA8FF</span></div>
+    <div class="stop" style="background:#36E2D2"><span class="n">accent / cyan</span><span class="h">#36E2D2</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Vantage — Design Tokens
+   Single source of truth for color, type, spacing, radius, shadow, motion.
+   Import from any artifact:
+     <link rel="stylesheet" href="colors_and_type.css">
+   ========================================================================== */
+
+/* ---------- Webfonts ---------- */
+/* Geist — self-hosted variable font (user-supplied) */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Geist-VariableFont_wght.ttf") format("truetype-variations");
+}
+/* Geist Mono — no user-supplied file yet; fall back to Geist for monospaced
+   contexts via tabular-nums. Replace this @font-face when a real mono ships. */
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Geist-VariableFont_wght.ttf") format("truetype-variations");
+}
+
+:root {
+  /* ===== Color — base ===== */
+  --bg:            #07080A;   /* page */
+  --surface-1:    #0E1014;    /* default card */
+  --surface-2:    #15181E;    /* elevated card */
+  --surface-3:    #1C2028;    /* popovers, sticky chrome */
+  --surface-4:    #242935;    /* hover surfaces */
+
+  /* ===== Color — text ===== */
+  --text-primary:   #F5F6F8;  /* never pure white */
+  --text-secondary: #9AA0AB;
+  --text-muted:     #5C6270;
+  --text-disabled:  #3A3F49;
+  --text-inverse:   #07080A;
+
+  /* ===== Color — borders / dividers (transparent on dark) ===== */
+  --border-faint:   rgba(255,255,255,0.04);
+  --border:         rgba(255,255,255,0.06);
+  --border-strong:  rgba(255,255,255,0.12);
+  --border-focus:   rgba(124,92,255,0.50);
+  --divider:        rgba(255,255,255,0.06);
+
+  /* ===== Color — brand accents (solid forms of gradient stops) ===== */
+  --accent-violet: #7C5CFF;
+  --accent-azure:  #4FA8FF;
+  --accent-cyan:   #36E2D2;
+
+  /* hover/press tints */
+  --violet-soft:   rgba(124,92,255,0.12);
+  --azure-soft:    rgba(79,168,255,0.12);
+  --cyan-soft:     rgba(54,226,210,0.12);
+
+  /* ===== Color — semantic ===== */
+  --success: #36D399;
+  --warning: #FFB547;
+  --danger:  #FF5C7C;
+  --info:    #4FA8FF;
+  --success-soft: rgba(54,211,153,0.12);
+  --warning-soft: rgba(255,181,71,0.12);
+  --danger-soft:  rgba(255,92,124,0.12);
+
+  /* ===== Brand gradient ===== */
+  --grad-brand:        linear-gradient(135deg, #7C5CFF 0%, #4FA8FF 55%, #36E2D2 100%);
+  --grad-brand-soft:   linear-gradient(135deg, rgba(124,92,255,0.18) 0%, rgba(79,168,255,0.12) 55%, rgba(54,226,210,0.18) 100%);
+  --grad-bloom:        radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,0.40) 0%, rgba(79,168,255,0.20) 35%, rgba(54,226,210,0.10) 65%, transparent 100%);
+  --grad-text:         linear-gradient(135deg, #C9BCFF 0%, #9CD0FF 55%, #9AF0E5 100%);
+
+  /* ===== Type — family ===== */
+  --font-display: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ===== Type — scale ===== */
+  --text-display-1: clamp(56px, 8vw, 112px);  /* hero */
+  --text-display-2: clamp(44px, 6vw, 80px);   /* section headline */
+  --text-display-3: clamp(36px, 4.5vw, 56px); /* feature headline */
+  --text-h1: 40px;
+  --text-h2: 32px;
+  --text-h3: 24px;
+  --text-h4: 20px;
+  --text-h5: 16px;
+  --text-body-lg: 18px;
+  --text-body:    16px;
+  --text-body-sm: 14px;
+  --text-caption: 13px;
+  --text-micro:   11px;   /* eyebrows, badges */
+
+  /* ===== Type — line height ===== */
+  --lh-tight:   0.95;
+  --lh-snug:    1.10;
+  --lh-normal:  1.40;
+  --lh-relaxed: 1.62;
+
+  /* ===== Type — tracking ===== */
+  --tr-display:  -0.04em;
+  --tr-heading:  -0.02em;
+  --tr-body:     -0.005em;
+  --tr-eyebrow:  0.16em;
+
+  /* ===== Type — weight ===== */
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+
+  /* ===== Spacing — 4px grid ===== */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-14:  56px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-30:  120px;
+  --space-40:  160px;
+
+  /* ===== Radius ===== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;       /* buttons, inputs */
+  --radius-md: 12px;      /* cards */
+  --radius-lg: 16px;
+  --radius-xl: 24px;      /* hero containers */
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ===== Shadows / glows ===== */
+  /* Drop shadows are minimal in dark UI — use glows. */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-2: 0 4px 16px rgba(0,0,0,0.32);
+  --shadow-3: 0 12px 40px rgba(0,0,0,0.45);
+  --shadow-pop: 0 24px 60px -20px rgba(0,0,0,0.6);
+
+  /* glows (color-tinted) */
+  --glow-violet:  0 0 0 1px rgba(124,92,255,0.20), 0 12px 40px -10px rgba(124,92,255,0.45);
+  --glow-azure:   0 0 0 1px rgba(79,168,255,0.20),  0 12px 40px -10px rgba(79,168,255,0.45);
+  --glow-cyan:    0 0 0 1px rgba(54,226,210,0.20),  0 12px 40px -10px rgba(54,226,210,0.45);
+  --glow-cta:     0 0 32px rgba(124,92,255,0.35), 0 0 64px rgba(79,168,255,0.18);
+
+  /* inset highlight — the single line that sells glassmorphism */
+  --inset-top: inset 0 1px 0 rgba(255,255,255,0.06);
+  --inset-top-strong: inset 0 1px 0 rgba(255,255,255,0.12);
+
+  /* focus ring */
+  --focus-ring: 0 0 0 2px rgba(124,92,255,0.5), 0 0 0 4px rgba(124,92,255,0.12);
+
+  /* ===== Motion ===== */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);     /* THE curve */
+  --dur-micro:  120ms;
+  --dur-sm:     220ms;
+  --dur-md:     380ms;
+  --dur-lg:     600ms;
+
+  /* ===== Layout ===== */
+  --container-marketing: 1200px;
+  --container-app:       1440px;
+  --bp-sm:  480px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+
+  /* ===== Z-index ===== */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-overlay: 1000;
+  --z-modal: 2000;
+  --z-toast: 3000;
+}
+
+/* ==========================================================================
+   Element defaults — semantic typography
+   ========================================================================== */
+
+html {
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--tr-body);
+  font-weight: var(--fw-regular);
+  color: var(--text-primary);
+  background: var(--bg);
+  margin: 0;
+  font-feature-settings: "ss01", "cv01";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: var(--tr-heading);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-semi);
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-h1); letter-spacing: var(--tr-display); line-height: var(--lh-tight); font-weight: var(--fw-bold); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); }
+h5 { font-size: var(--text-h5); }
+
+p   { margin: 0; color: var(--text-secondary); text-wrap: pretty; }
+small { font-size: var(--text-caption); color: var(--text-muted); }
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--dur-micro) var(--ease);
+}
+a:hover { color: var(--accent-azure); }
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-feature-settings: "tnum", "ss01";
+}
+
+::selection {
+  background: rgba(124,92,255,0.35);
+  color: var(--text-primary);
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Utility classes — used by preview cards and UI kits
+   ========================================================================== */
+
+.eyebrow {
+  font-size: var(--text-micro);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.mono { font-family: var(--font-mono); font-feature-settings: "tnum", "ss01"; }
+.tnum { font-feature-settings: "tnum", "ss01"; font-variant-numeric: tabular-nums; }
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.surface-1 { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--inset-top); }
+.surface-2 { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--inset-top); }
+.surface-3 { background: var(--surface-3); border: 1px solid var(--border-strong); border-radius: var(--radius-md); box-shadow: var(--inset-top); }

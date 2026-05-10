@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 0; margin: 0; height: 320px; background: var(--bg); position: relative; overflow: hidden; }
+  .bloom { position:absolute; inset: -100px; background: var(--grad-bloom); filter: blur(20px); }
+  .arcs { position:absolute; right: -60px; top: 50%; transform: translateY(-50%); }
+  .content { position: absolute; left: 32px; top: 50%; transform: translateY(-50%); display:flex; flex-direction:column; gap: 10px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-cyan); }
+  h2 { font-family: var(--font-display); font-size: 56px; line-height: 0.95; letter-spacing: -0.04em; font-weight: 700; }
+  .grad-text { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { font-size: 14px; color: var(--text-secondary); }
+  .grain { position:absolute; inset:0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>"); opacity: 0.05; mix-blend-mode: overlay; pointer-events:none; }
+</style>
+</head><body>
+  <div class="bloom"></div>
+  <svg class="arcs" width="360" height="360" viewBox="0 0 360 360" fill="none">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="360" y2="360">
+        <stop offset="0" stop-color="#7C5CFF" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="#36E2D2" stop-opacity="0.4"/>
+      </linearGradient>
+    </defs>
+    <circle cx="180" cy="180" r="160" stroke="url(#g)" stroke-width="1" stroke-dasharray="2 6"/>
+    <circle cx="180" cy="180" r="130" stroke="url(#g)" stroke-width="1" opacity="0.6"/>
+    <path d="M 60 180 A 120 120 0 0 1 300 180" stroke="url(#g)" stroke-width="2" fill="none"/>
+    <path d="M 100 180 A 80 80 0 0 1 260 180" stroke="url(#g)" stroke-width="1.5" fill="none" opacity="0.7"/>
+  </svg>
+  <div class="content">
+    <span class="eyebrow">Brand motif</span>
+    <h2>Concentric<br><span class="grad-text">arcs.</span></h2>
+    <p>Recurring graphic device — appears behind hero stats and as the loader.</p>
+  </div>
+  <div class="grain"></div>
+</body></html>

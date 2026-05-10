@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; }
+  .row { display:flex; gap: 14px; align-items:flex-end; }
+  .tile { width: 92px; height: 92px; background: var(--surface-2); border:1px solid var(--border); box-shadow: var(--inset-top); display:flex; align-items:center; justify-content:center; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-top:6px; text-align:center; }
+  .item { display:flex; flex-direction:column; align-items:center; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="item"><div class="tile" style="border-radius: 4px;">xs</div><div class="meta">4</div></div>
+    <div class="item"><div class="tile" style="border-radius: 8px;">sm</div><div class="meta">8 · btn / input</div></div>
+    <div class="item"><div class="tile" style="border-radius: 12px;">md</div><div class="meta">12 · card</div></div>
+    <div class="item"><div class="tile" style="border-radius: 16px;">lg</div><div class="meta">16</div></div>
+    <div class="item"><div class="tile" style="border-radius: 24px;">xl</div><div class="meta">24 · hero</div></div>
+    <div class="item"><div class="tile" style="border-radius: 999px;">●</div><div class="meta">pill · 999</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <defs>
+    <linearGradient id="vg2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C5CFF"></stop>
+      <stop offset="0.55" stop-color="#4FA8FF"></stop>
+      <stop offset="1" stop-color="#36E2D2"></stop>
+    </linearGradient>
+  </defs>
+  <path d="M10 30 L18 16 L24 27 L30 16 L38 30" stroke="url(#vg2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="24" cy="35" r="1.7" fill="url(#vg2)"></circle>
+  <text x="54" y="32" font-family="Geist, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.02em" fill="#F5F6F8">vantage</text>
+</svg>

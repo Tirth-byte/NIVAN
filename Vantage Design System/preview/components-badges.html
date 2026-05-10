@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }
+  .badge { display:inline-flex; align-items:center; gap:6px; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; border: 1px solid transparent; }
+  .b-violet { background: var(--violet-soft); color: #C9BCFF; border-color: rgba(124,92,255,0.25); }
+  .b-azure  { background: var(--azure-soft);  color: #9CD0FF; border-color: rgba(79,168,255,0.25); }
+  .b-cyan   { background: var(--cyan-soft);   color: #9AF0E5; border-color: rgba(54,226,210,0.25); }
+  .b-success{ background: var(--success-soft); color: #7FE5BA; border-color: rgba(54,211,153,0.25); }
+  .b-warn   { background: var(--warning-soft); color: #FFD089; border-color: rgba(255,181,71,0.25); }
+  .b-danger { background: var(--danger-soft);  color: #FFA0B5; border-color: rgba(255,92,124,0.25); }
+  .b-ghost  { background: rgba(255,255,255,0.04); color: var(--text-secondary); border-color: var(--border); }
+  .dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+  .live .dot { background: var(--success); box-shadow: 0 0 8px var(--success); }
+  .pulse { animation: pulse 2s infinite cubic-bezier(0.22,1,0.36,1); }
+  @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity: 0.5 } }
+</style>
+</head><body>
+  <span class="badge b-success live"><span class="dot pulse"></span>LIVE</span>
+  <span class="badge b-cyan">NEW</span>
+  <span class="badge b-violet">PRO BOOSTER</span>
+  <span class="badge b-azure">DUO</span>
+  <span class="badge b-ghost">PLATINUM IV</span>
+  <span class="badge b-warn">ETA AT RISK</span>
+  <span class="badge b-danger">REFUNDED</span>
+  <span class="badge b-success"><span class="dot"></span>COMPLETED</span>
+  <span class="badge b-ghost">+ 12 LP / WIN</span>
+  <span class="badge b-violet">TOP 0.1%</span>
+</body></html>
